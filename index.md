@@ -10,6 +10,7 @@ For those traveling from out of town, we're renting a big house together! Like l
 For New Yorkers or those who already have accommodations, who would like to join in the events and festivities but not sleep over, please register as well! Again, the megameetup-only cost is $25 per person.
 
 The exact schedule for the weekend is up in the air, but we're planning on hosting:
+
  - three meals: Saturday lunch, Saturday dinner, and Sunday breakfast
  - Secular Solstice afterparty on Saturday night
  - an unconference on Sunday
