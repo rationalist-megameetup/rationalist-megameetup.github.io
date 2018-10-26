@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://rationalistmegameetup.com/</loc>
-  <lastmod>2018-10-26T15:33:00Z</lastmod>
+  <lastmod>2018-10-26T15:47:00Z</lastmod>
  </url>
  <url>
   <loc>http://rationalistmegameetup.com/archive.html</loc>
-  <lastmod>2018-10-26T15:33:00Z</lastmod>
+  <lastmod>2018-10-26T16:21:00Z</lastmod>
  </url>
  <url>
   <loc>http://rationalistmegameetup.com/blog/</loc>
@@ -23,7 +23,11 @@
  </url>
  <url>
   <loc>http://rationalistmegameetup.com/galleries/</loc>
-  <lastmod>2018-10-26T15:33:00Z</lastmod>
+  <lastmod>2018-10-26T16:11:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://rationalistmegameetup.com/galleries/2017/</loc>
+  <lastmod>2018-10-26T16:11:00Z</lastmod>
  </url>
  <url>
   <loc>http://rationalistmegameetup.com/index-2017/</loc>

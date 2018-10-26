@@ -6,8 +6,12 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://rationalistmegameetup.com/galleries/2017/rss.xml</loc>
+  <lastmod>2018-10-26T16:21:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://rationalistmegameetup.com/galleries/rss.xml</loc>
-  <lastmod>2018-10-26T15:33:00Z</lastmod>
+  <lastmod>2018-10-26T16:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://rationalistmegameetup.com/rss.xml</loc>
@@ -15,6 +19,6 @@
  </sitemap>
  <sitemap>
   <loc>http://rationalistmegameetup.com/sitemap.xml</loc>
-  <lastmod>2018-10-26T15:39:00Z</lastmod>
+  <lastmod>2018-10-26T16:21:00Z</lastmod>
  </sitemap>
 </sitemapindex>
