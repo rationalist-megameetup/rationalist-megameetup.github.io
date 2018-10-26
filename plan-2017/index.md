@@ -137,3 +137,5 @@ I’m Taymon A. Beal. Although I was never active on (the original) Less Wrong p
 I was the primary organizer of Boston Secular Solstice 2015 and 2016, and one of five organizers of EAGxBoston 2016. In addition, I’m a core organizer of the Cambridge Less Wrong meetup group and previously organized MIRIxCambridgeMA workshops. In a previous life, I was a production manager and stage manager for a college theatre group. I haven’t taken on an event quite like this one by myself before, but I’m looking forward to the opportunity to make it work.
 
 Personal references include James Babcock, Victoria Krakovna, János Kramar, and Vincent Luczkow, whom I’ve worked with in the Boston rationalist community; Jeff Kaufman and Julia Wise, whom I’ve worked with in the Boston effective altruist community; Raymond Arnold and Chelsea Voss, whom I’ve worked with on Solstice; and Randy Carlton, Mi Shan Wong, Dillon Bowen, and Allison Smith, my co-organizers from EAGxBoston 2016.
+
+*Note: The megameetup is no longer run by Taymon, this plan is maintained for posterity / knowledge management.*
