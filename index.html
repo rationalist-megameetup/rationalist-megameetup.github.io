@@ -92,33 +92,35 @@
 <p><br></p>
 <hr>
 <br><p><a id="register"><div class="container"><div class="col-md-12"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdiocZ-56zI3xofszNbGQ-LzfEBGkuNUCK20VpD73PS7J32nQ/viewform?embedded=true" width="100%" height="1980" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div></div></a></p>
-<p>After registering, please use the button beneath to pay and finalize! Please remember to get your Solstice tickets separately.</p>
+<p>After registering, please use one of the two buttons beneath to pay and finalize! Please remember to get your Solstice tickets separately.</p>
 </div>
     </div>
 
-<!-- Load Stripe.js on your website. -->
+<!--Start Stripe-->
+<!-- Load Stripe.js -->
 <script src="https://js.stripe.com/v3"></script>
 
+<!-- Overnight ticket -->
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDWt13sNphtj1n"
+  id="checkout-button-sku_GDX7juQMxImHNb"
   role="link"
 >
-  Checkout
+  Overnight Ticket
 </button>
 
 <div id="error-message"></div>
 
 <script>
 (function() {
-  var stripe = Stripe('pk_test_1rFj59gUf9m0pdklmS85ZhrL00L9dZM23T');
+  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_GDWt13sNphtj1n');
+  var checkoutButton = document.getElementById('checkout-button-sku_GDX7juQMxImHNb');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_GDWt13sNphtj1n', quantity: 1}],
+      items: [{sku: 'sku_GDX7juQMxImHNb', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
@@ -140,26 +142,27 @@
 })();
 </script>
 
+<!--Visitor Ticket-->
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDWuXksVIvgM8k"
+  id="checkout-button-sku_GDX713vkTENhRK"
   role="link"
 >
-  Checkout
+  Visitor ticket
 </button>
 
 <div id="error-message"></div>
 
 <script>
 (function() {
-  var stripe = Stripe('pk_test_1rFj59gUf9m0pdklmS85ZhrL00L9dZM23T');
+  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_GDWuXksVIvgM8k');
+  var checkoutButton = document.getElementById('checkout-button-sku_GDX713vkTENhRK');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_GDWuXksVIvgM8k', quantity: 1}],
+      items: [{sku: 'sku_GDX713vkTENhRK', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
