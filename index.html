@@ -101,7 +101,7 @@
 
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDWt13sNphtj1n"
+  id="checkout-button-sku_GDX7juQMxImHNb"
   role="link"
 >
   Checkout
@@ -111,14 +111,14 @@
 
 <script>
 (function() {
-  var stripe = Stripe('pk_test_1rFj59gUf9m0pdklmS85ZhrL00L9dZM23T');
+  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_GDWt13sNphtj1n');
+  var checkoutButton = document.getElementById('checkout-button-sku_GDX7juQMxImHNb');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_GDWt13sNphtj1n', quantity: 1}],
+      items: [{sku: 'sku_GDX7juQMxImHNb', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
@@ -142,7 +142,7 @@
 
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDWuXksVIvgM8k"
+  id="checkout-button-sku_GDXNhQH8UHDU3c"
   role="link"
 >
   Checkout
@@ -152,14 +152,14 @@
 
 <script>
 (function() {
-  var stripe = Stripe('pk_test_1rFj59gUf9m0pdklmS85ZhrL00L9dZM23T');
+  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_GDWuXksVIvgM8k');
+  var checkoutButton = document.getElementById('checkout-button-sku_GDXNhQH8UHDU3c');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_GDWuXksVIvgM8k', quantity: 1}],
+      items: [{sku: 'sku_GDXNhQH8UHDU3c', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
