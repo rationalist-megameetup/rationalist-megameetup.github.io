@@ -103,15 +103,14 @@
 </div>
     </div>
 
-<!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
+
 
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;margin:16px;font-size:1em"
-  id="checkout-button-sku_GDX7juQMxImHNb"
+  id="checkout-button-sku_GDXNhQH8UHDU3c"
   role="link"
 >
-  Overnight Ticket
+  Visitor Ticket
 </button>
 
 <div id="error-message"></div>
@@ -120,12 +119,12 @@
 (function() {
   var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_GDX7juQMxImHNb');
+  var checkoutButton = document.getElementById('checkout-button-sku_GDXNhQH8UHDU3c');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_GDX7juQMxImHNb', quantity: 1}],
+      items: [{sku: 'sku_GDXNhQH8UHDU3c', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
