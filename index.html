@@ -74,21 +74,78 @@
 </strong></p>
 <p>For nearly a decade, a secular solstice has been held in New York, greeting the longest night with song and community. For two years, the East Coast Rationalist Megameetup has been organized by Taymon and Michael in NYC to extend that sense of community for the whole weekend. Well, once is a good idea, twice is a successful replication, and the third time is a habit.
 </p>
-<p>Unfortunately, we are now at capacity, and registrations are now closed. If you already registered, keep in mind that registration for the megameetup does not include solstice tickets, so make sure to get those separately.
+<p>If you need a place to stay, we've rented a big house together. We're pricing the events ticket at $25 per person, which goes towards food and also renting the space. 
 </p>
-<p>The full schedule of events for the weekend is in the big email you should have received (and if you're registered but did not receive it, let me know!) but we will be hosting:</p>
+<p>Registration for the megameetup does not include solstice tickets, so make sure to get those separately.
+</p>
+<p>The full schedule of events for the weekend is set, and we will be hosting:</p>
 <ul>
-<li>three meals: Saturday lunch, Saturday dinner, and Sunday breakfast</li>
-<li>Secular Solstice afterparty on Saturday night</li>
-<li>an unconference on Sunday starting at 2pm</li>
+<li>Friday 6pm, check-in: I'll be there and the house should be open by then. Technically I plan to be there an hour earlier, but A. I'll be setting up a little and B. I might get delayed.</li>
+<li>Friday 7~8pm, shopping: We're going to need to do a big food run to stock up for the weekend. As you show up if you're coming Friday night, let either myself or Angelica D. know if you're willing to help carry things back.</li>
+<li>Saturday at noon, lunch: We're currently planning on veggie burgers, bean salad, and tuna pasta salad.</li>
+<li>Saturday 5pm, dinner: Currently planning on a big pot of chili.</li>
+<li>Saturday 6:30~7pm, depart for Solstice: For the benefit of those not used to navigating NYC (including me!) a big group is going to depart together to attend Solstice at Hunter's College. Google maps tells me it's about a half hour trip, but with a group this large leaving early is probably worth it.</li>
+<li>Saturday 7:30pm to 10pm, Solstice: Solstice! Nothing more need be said I think.</li>
+<li>Saturday 10:30pm to late, afterparty: We don't have quite as much space from our neighbors as we did last year, so please be considerate of both volume and crowd.</li>
+<li>Sunday at noon, lunch: Currently planning on Scallion pancakes, latkes, and quesadillas.</li>
+<li>Sunday 2pm, unconference starts: We have a variety of people offering to present (And if you're one of those people, go add your name here!)</li>
+<li>Sunday ~8pm, wind down: For those who remain, we're going to gather around, make sure we know what needs to be done for cleanup Monday, and maybe say some goodbyes.</li>
+<li>Monday 8am, cleanup: We need to be out and gone by noon. Last year a number of volunteers remained to make sure things were as organized as they could be, and we are thankful to them. Leave whenever you have to go to make your transportation home, but if you could leave things as neat as you can before you depart it would be appreciated.</li>
+<li>Monday 11:30am, final checkout: We technically have until noon. Save me some worry and lets all get out before hand if possible.</li>
 </ul>
 <p>Of course, there will also be plenty of time for social mixing. </p>
-
-<p><em>In the event you need to <a href="mailto:rationalist.megameetup@gmail.com">contact me</a> that is the surest way to do so, and I'll try to respond as quickly as events permit. There is also a facebook messenger group thread, which if you rsvp to the facebook group for the event or message me on facebook you can be added to.</em></p>
+<p>We are going to be quite crowded at times, but are going to get to enjoy each other's close proximity. If you are not sleeping over, we appreciate you only staying until quite late and not extremely late Saturday night.</p>
 <p>-Skyler Crossman</p>
 <p><br></p>
 <hr>
+<br><p><a id="register"><div class="container"><div class="col-md-12"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdiocZ-56zI3xofszNbGQ-LzfEBGkuNUCK20VpD73PS7J32nQ/viewform?embedded=true" width="100%" height="1980" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div></div></a></p>
+<p>After registering, please use one of the two buttons beneath to pay and finalize! Please remember to get your Solstice tickets separately.</p>
+</div>
+    </div>
 
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;margin:16px;font-size:1em"
+  id="checkout-button-sku_GDX7juQMxImHNb"
+  role="link"
+>
+  Overnight Ticket
+</button>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_GDX7juQMxImHNb');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_GDX7juQMxImHNb', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'https://rationalistmegameetup.com/success',
+      cancelUrl: 'https://rationalistmegameetup.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
 
 </article><!--End of body content--><footer id="footer">
             Contents © 2019         <a href="mailto:rationalist.megameetup@gmail.com">Skyler Crossman</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
