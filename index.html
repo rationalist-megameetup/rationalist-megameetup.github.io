@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="NYC Rationalist Megameetup">
 <meta property="og:title" content="East Coast Rationalist Megameetup 2022">
 <meta property="og:url" content="http://rationalistmegameetup.com/">
-<meta property="og:description" content="If the NYC Secular Solstice happens this year, we'll be hosting a rationalist community gathering with accommodations for out-of-towners in the NYC area. ">
+<meta property="og:description" content="NYC Secular Solstice this year will be on December 10th. That weekend, from December 9 to 12, we'll be hosting a rationalist community gathering with accommodations for out-of-towners in the NYC area. ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2022-04-25T00:00:00-04:00">
+<meta property="article:published_time" content="2022-10-10T00:00:00-04:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -64,24 +64,137 @@
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><strong>Due to the Covid-19 pandemic, no megameetup was held in 2020 or 2021. We're going to try and hold one in 2022.
+<p><strong>NYC Secular Solstice this year is planned for December the 10th, Saturday Night, location to be determined. That weekend, from Friday December 9th to Monday December 12th, we'll be hosting weekend long rationalist community get-together with accommodations for those who are visiting. 
 </strong></p>
-
-<p>The current intention is to hold a megameetup in December to coincide with the NYC solstice. To our knowledge, which weekend solstice will be held on has not yet been determined. Once we know what weekend to aim at, we'll announce that here and make arrangements to welcome you all to NYC.</p>
-
-<p>Speaking personally: I've missed these far too much to let them fall by the wayside another year.</p>
-
-<p>-Skyler Crossman, 25th of April, 2022</p>
+<p>For nearly a decade, a secular solstice has been held in New York, greeting the longest night with song and community. The East Coast Rationalist Megameetup doesn't have quite as long a tradition, but for several years now when Solstice is held, the Megameetup accompanies it. The pandemic had stopped us recently, but this year it's back!
+</p>
+<p>If you need a place to stay, we've rented a big house together.  If you'd like a space to meet and talk, we'll have company and food. Since the community tends to be, speaking informally, comprised of half college students and half software engineers, we have two different prices for the same tickets. Depending on your means we're asking either $100 or $200 to stay overnight, and $25 if you're just coming during the day. Anyone who would like to attend but cannot afford $100 should <a href="mailto:east.coast.rationalist.megameetup@gmail.com">contact us</a> directly for arrangements- no promises, but we may have space.
+</p>
+<p><em>Registration for the megameetup does not include solstice tickets, so make sure to get those separately.</em>
+</p>
+<p>The full schedule of events for the weekend is being put together, but we will be hosting:</p>
+<ul>
+<li>three meals: Saturday lunch, Saturday dinner, and Sunday breakfast</li>
+<li>Secular Solstice afterparty on Saturday night</li>
+<li>an unconference on Sunday</li>
+</ul>
+<p>Of course, there will also be plenty of time for social mixing. </p>
+<p>After you register, you should receive an email with the details. This is a manual process, so don't be surprised if it takes until evening EST.</p>
+<p>-Skyler Crossman, on behalf of the megameetup team</p>
+<p>Skyler Crossman, River Bellamy</p>
 <p><br></p>
 <hr>
-<br>
+<br><p><a id="register"><div class="container"><div class="col-md-12"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZMR0WFU9YniRBq53-CC9JE4euqtJCCc625giaZxJCmEc68Q/viewform?embedded=true" width="640" height="1881" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div></div></a></p>
+<p>After registering, please use the paypal button beneath to pay and finalize! Please remember to get your Solstice tickets separately.</p>
 </div>
     </div>
 
-<script src="https://js.stripe.com/v3></script>
+<!--PAYMENT-->
+<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div style="margin-bottom: 1.25rem;">
+          <p></p>
+          <select id="item-options"><option value="Overnight (Low)" price="100">Overnight (Low) - 100 USD</option><option value="Overnight (High)" price="200">Overnight (High) - 200 USD</option><option value="Day Only" price="25">Day Only - 25 USD</option></select>
+          <select style="visibility: hidden" id="quantitySelect"></select>
+        </div>
+      <div id="paypal-button-container"></div>
+      </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+      function initPayPalButton() {
+        var shipping = 0;
+        var itemOptions = document.querySelector("#smart-button-container #item-options");
+    var quantity = parseInt();
+    var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
+    if (!isNaN(quantity)) {
+      quantitySelect.style.visibility = "visible";
+    }
+    var orderDescription = '';
+    if(orderDescription === '') {
+      orderDescription = 'Item';
+    }
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'paypal',
+        
+      },
+      createOrder: function(data, actions) {
+        var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+        var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
+        var tax = (0 === 0 || false) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
+        if(quantitySelect.options.length > 0) {
+          quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+        } else {
+          quantity = 1;
+        }
+
+        tax *= quantity;
+        tax = Math.round(tax * 100) / 100;
+        var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+        priceTotal = Math.round(priceTotal * 100) / 100;
+        var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+
+        return actions.order.create({
+          purchase_units: [{
+            description: orderDescription,
+            amount: {
+              currency_code: 'USD',
+              value: priceTotal,
+              breakdown: {
+                item_total: {
+                  currency_code: 'USD',
+                  value: itemTotalValue,
+                },
+                shipping: {
+                  currency_code: 'USD',
+                  value: shipping,
+                },
+                tax_total: {
+                  currency_code: 'USD',
+                  value: tax,
+                }
+              }
+            },
+            items: [{
+              name: selectedItemDescription,
+              unit_amount: {
+                currency_code: 'USD',
+                value: selectedItemPrice,
+              },
+              quantity: quantity
+            }]
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(orderData) {
+          
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+
+        });
+      },
+      onError: function(err) {
+        console.log(err);
+      },
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+    </script>
 
 </article><!--End of body content--><footer id="footer">
-            Contents © 2022         <a href="mailto:rationalist.megameetup@gmail.com">Skyler Crossman</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2022         <a href="mailto:east.coast.rationalist.megameetup@gmail.com">Skyler Crossman and River Bellamy</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>
