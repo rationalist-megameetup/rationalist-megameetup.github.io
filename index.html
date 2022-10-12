@@ -96,9 +96,10 @@
 
 <!-- Overnight ticket (Low)-->
 <button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDX7juQMxImHNb"
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
+  id="checkout-button-sku_Mb8ERjyzKRMIuY"
   role="link"
+  type="button"
 >
   Overnight Ticket (Low)
 </button>
@@ -114,13 +115,13 @@
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_Mb8ERjyzKRMIuY', quantity: 1}],
-
+      lineItems: [{price: 'sku_Mb8ERjyzKRMIuY', quantity: 1}],
+      mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
       successUrl: 'https://rationalistmegameetup.com/success',
       cancelUrl: 'https://rationalistmegameetup.com/canceled',
     })
@@ -138,11 +139,12 @@
 
 <!--Overnight Ticket (High)-->
 <button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDX713vkTENhRK"
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
+  id="checkout-button-sku_Mb8EH8fzVSKkCA"
   role="link"
+  type="button"
 >
-  Overnight ticket (High)
+  Overnight Ticket (High)
 </button>
 
 <div id="error-message"></div>
@@ -156,13 +158,13 @@
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_Mb8EH8fzVSKkCA', quantity: 1}],
-
+      lineItems: [{price: 'sku_Mb8EH8fzVSKkCA', quantity: 1}],
+      mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
       successUrl: 'https://rationalistmegameetup.com/success',
       cancelUrl: 'https://rationalistmegameetup.com/canceled',
     })
@@ -180,9 +182,10 @@
 
 <!-- Visitor ticket -->
 <button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_GDX7juQMxImHNb"
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
+  id="checkout-button-sku_Mb8DioYPcjZJcK"
   role="link"
+  type="button"
 >
   Visitor Ticket
 </button>
@@ -195,16 +198,16 @@
 
   var checkoutButton = document.getElementById('checkout-button-sku_Mb8DioYPcjZJcK');
   checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
+     // When the customer clicks on the button, redirect
+     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_Mb8DioYPcjZJcK', quantity: 1}],
-
+      lineItems: [{price: 'sku_Mb8DioYPcjZJcK', quantity: 1}],
+      mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
       successUrl: 'https://rationalistmegameetup.com/success',
       cancelUrl: 'https://rationalistmegameetup.com/canceled',
     })
