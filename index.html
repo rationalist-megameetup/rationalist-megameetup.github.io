@@ -68,8 +68,9 @@
 </strong></p>
 <p>For nearly a decade, a secular solstice has been held in New York, greeting the longest night with song and community. The East Coast Rationalist Megameetup doesn't have quite as long a tradition, but for several years now when Solstice is held, the Megameetup accompanies it. The pandemic had stopped us recently, but this year it's back!
 </p>
-<p>If you need a place to stay, we've rented a big house together about two miles north of the PATH Hoboken station, near New York Ave and 10th St. If you'd like a space to meet and talk, we'll have company and food. Since the community tends to be, speaking informally, comprised of half college students and half software engineers, we have two different prices for the same tickets. Overnight stays are priced at $200. If that price would present an issue, we're happy to have you at $100- same accommodations, same food, same company. If you're staying elsewhere and just plan to be over during the day, $25 chips in for food the space. Anyone who would like to attend but cannot afford $100 should <a href="mailto:east.coast.rationalist.megameetup@gmail.com">contact us</a> directly for arrangements- no promises, but we may have space.
+<p><del>If you need a place to stay, we've rented a big house together about two miles north of the PATH Hoboken station, near New York Ave and 10th St. If you'd like a space to meet and talk, we'll have company and food. Since the community tends to be, speaking informally, comprised of half college students and half software engineers, we have two different prices for the same tickets. Overnight stays are priced at $200. If that price would present an issue, we're happy to have you at $100- same accommodations, same food, same company. If you're staying elsewhere and just plan to be over during the day, $25 chips in for food the space. Anyone who would like to attend but cannot afford $100 should <a href="mailto:east.coast.rationalist.megameetup@gmail.com">contact us</a> directly for arrangements- no promises, but we may have space.</del>
 </p>
+<p><ins>Overnight registrations are now closed! The buttons are still live below for the benefit of a few people who registered but had issues with earlier payment setups, but <i>if you aren't already registered for overnight, please do not use them.</i> Day registrations are still open, and will remain so unless we get a truly huge influx.</ins></p>
 <p><em>Registration for the megameetup does not include solstice tickets, so make sure to get those separately <a href="https://forms.gle/fAFLWFCLm1pS1Hra7">here</a>. (We aren't running Solstice, just the megameetup.)</em>
 </p>
 <p>The full schedule of events for the weekend is being put together, but we will be hosting:</p>
@@ -93,6 +94,51 @@
 <!-- Load Stripe.js -->
 <script src="https://js.stripe.com/v3"></script>
 
+
+
+<!-- Visitor ticket -->
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
+  id="checkout-button-sku_Mb8DioYPcjZJcK"
+  role="link"
+  type="button"
+>
+  Visitor Ticket
+</button>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_Mb8DioYPcjZJcK');
+  checkoutButton.addEventListener('click', function () {
+     // When the customer clicks on the button, redirect
+     // them to Checkout.
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'sku_Mb8DioYPcjZJcK', quantity: 1}],
+      mode: 'payment',
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
+      successUrl: 'https://rationalistmegameetup.com/success',
+      cancelUrl: 'https://rationalistmegameetup.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+<div><p>Reminder: Overnight registration is closed! Please don't use the buttons below unless you're one of the people who registered earlier and your payment hadn't gone through yet!</p></div>
 <!-- Overnight ticket (Low)-->
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
@@ -158,49 +204,6 @@
     // them to Checkout.
     stripe.redirectToCheckout({
       lineItems: [{price: 'sku_Mb8EH8fzVSKkCA', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://rationalistmegameetup.com/success',
-      cancelUrl: 'https://rationalistmegameetup.com/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
-
-<!-- Visitor ticket -->
-<button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
-  id="checkout-button-sku_Mb8DioYPcjZJcK"
-  role="link"
-  type="button"
->
-  Visitor Ticket
-</button>
-
-<div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_live_nFC84SyhAQ8ac0yfAmsTEvHs00UrVfT8Kc');
-
-  var checkoutButton = document.getElementById('checkout-button-sku_Mb8DioYPcjZJcK');
-  checkoutButton.addEventListener('click', function () {
-     // When the customer clicks on the button, redirect
-     // them to Checkout.
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'sku_Mb8DioYPcjZJcK', quantity: 1}],
       mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
