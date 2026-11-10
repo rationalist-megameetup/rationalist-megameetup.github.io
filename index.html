@@ -37,12 +37,17 @@
         margin: 2rem auto;
         max-width: 70%;
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-        text-align: left;
+        text-align: center;
+        color: #111;
+        font-weight: 600;
     }
-    
+
+    /* Keep the bullet list left-aligned, but centre it as a block. */
     .e-content ul {
         list-style-position: outside;
         text-align: left;
+        display: table;
+        margin: 0 auto 1rem;
     }
     
     .e-content ul li {
@@ -65,23 +70,28 @@
     
     .navbar .nav-link {
         color: white !important;
-        background: rgba(0, 0, 0, 0.45);
-        border-radius: 5px;
-        padding: 0.25rem 0.5rem;
-        margin: 0 0.25rem;
+        background: rgba(10, 20, 50, 0.75);
+        border: 2px solid rgba(255, 255, 255, 0.85);
+        border-radius: 999px;
+        padding: 0.55rem 1.6rem !important;
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
         display: inline-block;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
+        transition: background 0.15s, color 0.15s;
     }
     
     .navbar .nav-link:hover {
-        color: rgba(255, 255, 255, 0.8) !important;
-        background: rgba(0, 0, 0, 0.55);
+        color: white !important;
+        background: rgba(255, 255, 255, 0.25);
     }
     
+    /* The page you're on: solid white button. */
     .navbar .nav-link[href="../"] {
-        color: #64b5f6 !important;
-        background: rgba(0, 0, 0, 0.45) !important;
+        color: #14224a !important;
+        background: white !important;
     }
     
     .container {
@@ -116,6 +126,64 @@
 <meta property="og:description" content="NYC Secular Solstice this year will be on December 19th. That weekend, from December 18th to 21st, we'll be hosting a rationalist community gathering with accommodations for out-of-towners in the NYC area. ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2026-10-22T00:00:00-04:00">
+<style>
+    /* "Bubbly" panel: the white backdrop hugs each line of text instead of
+       being a rectangle. Turned on by the script at the bottom of the page. */
+    .e-content.bubbly {
+        background: transparent;
+        box-shadow: none;
+    }
+    .bub-wrap {
+        position: relative;
+    }
+    .bub-wrap > .bub-text {
+        position: relative;
+        z-index: 1;
+    }
+    .bub {
+        /* Padding makes the highlight bigger; the matching negative margin
+           keeps the text exactly where it was. */
+        padding: 1.1em 0.9em;
+        margin: 0 -0.9em;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+    }
+    /* The list reads left-aligned, so instead of per-line bubbles it gets one
+       block that's even on both sides: equal padding left (bullets) and right. */
+    .bubbly ul {
+        padding-right: 2.5rem;
+    }
+    .bub-layer ul {
+        background: #fff;
+        box-shadow: 0 0 0 0.9em #fff;
+    }
+    .bub-layer li > .bub {
+        background: transparent !important;
+    }
+    .bub-layer {
+        position: absolute;
+        top: -1.5em;
+        right: -1.5em;
+        bottom: -1.5em;
+        left: -1.5em;
+        padding: 1.5em;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.8;
+        filter: url(#bubbly-goo);
+    }
+    .bub-layer .bub {
+        background: #fff;
+    }
+    .bub-layer,
+    .bub-layer * {
+        color: transparent !important;
+        text-decoration-color: transparent !important;
+    }
+    .bub-layer li::marker {
+        color: transparent;
+    }
+</style>
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -212,5 +280,43 @@
             return element.getElementsByTagName('img')[0].alt;
     }});
     </script>
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true" focusable="false">
+    <filter id="bubbly-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8"/>
+    </filter>
+</svg>
+<script>
+    // Bubbly panel: give every paragraph and list item an inline highlight,
+    // then put a blurred, transparent-text copy behind the real text.
+    (function () {
+        var panel = document.querySelector('.e-content');
+        var content = panel && panel.querySelector(':scope > div');
+        if (!content) return;
+
+        content.querySelectorAll('p, li').forEach(function (el) {
+            if (!el.textContent.trim()) return;
+            var span = document.createElement('span');
+            span.className = 'bub';
+            while (el.firstChild) span.appendChild(el.firstChild);
+            el.appendChild(span);
+        });
+
+        var wrap = document.createElement('div');
+        wrap.className = 'bub-wrap';
+        content.parentNode.insertBefore(wrap, content);
+
+        var layer = content.cloneNode(true);
+        layer.className = 'bub-layer';
+        layer.setAttribute('aria-hidden', 'true');
+        layer.setAttribute('inert', '');
+        layer.querySelectorAll('a').forEach(function (a) { a.removeAttribute('href'); });
+
+        content.classList.add('bub-text');
+        wrap.appendChild(layer);
+        wrap.appendChild(content);
+        panel.classList.add('bubbly');
+    })();
+</script>
 </body>
 </html>

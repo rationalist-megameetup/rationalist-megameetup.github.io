@@ -65,23 +65,28 @@
     
     .navbar .nav-link {
         color: white !important;
-        background: rgba(0, 0, 0, 0.45);
-        border-radius: 5px;
-        padding: 0.25rem 0.5rem;
-        margin: 0 0.25rem;
+        background: rgba(10, 20, 50, 0.75);
+        border: 2px solid rgba(255, 255, 255, 0.85);
+        border-radius: 999px;
+        padding: 0.55rem 1.6rem !important;
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
         display: inline-block;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
+        transition: background 0.15s, color 0.15s;
     }
     
     .navbar .nav-link:hover {
-        color: rgba(255, 255, 255, 0.8) !important;
-        background: rgba(0, 0, 0, 0.55);
+        color: white !important;
+        background: rgba(255, 255, 255, 0.25);
     }
     
+    /* The page you're on: solid white button. */
     .navbar .nav-link[href="../register"] {
-        color: #64b5f6 !important;
-        background: rgba(0, 0, 0, 0.45) !important;
+        color: #14224a !important;
+        background: white !important;
     }
     
     .container {
